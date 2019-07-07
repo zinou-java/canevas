@@ -7,13 +7,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+
 @Data
 @Entity
-@Table (name = "caracteristique")
+@Table (name = "listerg")
 
-public class Caracteristique extends BaseEntity {
+public class ListeRg extends BaseEntity{
 
-
-    @Column (name = "nom")
-    private String nomCaracteristique;
+    @Column(name = "region")
+    private String region;
 }

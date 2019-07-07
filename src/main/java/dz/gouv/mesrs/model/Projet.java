@@ -21,12 +21,12 @@ public class Projet extends BaseEntity{
 
     @ManyToOne
     @JoinColumn (name = "conf_regionale")
-    private Liste confregionale;
+    private ListeRg confregionale;
 
 
     @ManyToOne
     @JoinColumn (name = "etablissement")
-    private Liste idetablissement;
+    private Liste etablissement;
 
     @Column (name = "credit_budgetaire_alloue")
     private String credit;

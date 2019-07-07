@@ -2,8 +2,8 @@ package dz.gouv.mesrs.ManagedBean;
 
 
 
+import dz.gouv.mesrs.model.ListeRg;
 import dz.gouv.mesrs.services.*;
-import dz.gouv.mesrs.services.impl.CaracteristiqueServiceImpl;
 import dz.gouv.mesrs.services.nc.NomenclatureService;
 import dz.gouv.mesrs.services.ppm.RefEtablissementService;
 import dz.gouv.mesrs.services.ppm.RefTypePieceConstitutiveService;
@@ -22,7 +22,7 @@ public abstract class BaseBean {
     EquipementService equipementService;
 
     @Autowired
-    CarateristqueService carateristqueService;
+    ComposantService composantService;
 
     @Autowired
     ProjetService projetService;
@@ -31,13 +31,23 @@ public abstract class BaseBean {
     ListeService listeService;
 
     @Autowired
+    ListeRgService listeRgService;
+
+    @Autowired
     RefEtablissementService refEtablissementService;
 
     @Autowired
     NomenclatureService nomenclatureService;
 
     @Autowired
-    OutilCarateristqueService outilCarateristqueService;
+    EquipementComposantService equipementComposantService;
+
+    @Autowired
+    EquipementProjetService equipementProjetService;
+
+    @Autowired
+    DetailEquipementProjetService detailEquipementProjetService;
+
 
     @Autowired
     RefTypePieceConstitutiveService refTypePieceConstitutiveService;

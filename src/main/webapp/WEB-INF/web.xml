@@ -32,7 +32,7 @@
 		<session-timeout>30</session-timeout>
 	</session-config>
 	<welcome-file-list>
-		<welcome-file>pages/equipement.xhtml</welcome-file>
+		<welcome-file>pages/projet.xhtml</welcome-file>
 	</welcome-file-list>
 	<context-param>
 		<param-name>primefaces.THEME</param-name>

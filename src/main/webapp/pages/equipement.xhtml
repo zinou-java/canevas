@@ -12,42 +12,120 @@
 
     <ui:composition template="/pages/template/fullPageLayout.xhtml">
         <ui:define name="content">
+            <h:form id="demande">
+
+                <div>
+                    <ui:include src="steps7.xhtml"></ui:include>
+                </div>
+
+                <br></br>
+                <br></br>
 
 
-            <p:dataTable value="#{equipementBean.equipements}" var="outils" id="equipementTable">
+                <p:growl id="msgs" showDetail="true" />
+                <p:fieldset legend="Mon Equipement" style="margin-bottom:20px">
+                <div class="alert alert-info">
+                    <strong>Choisir votre équipement</strong>
+
+                <h:outputLink id="fade" value="#">
+                    <p:commandButton value="Ajouter un equipement" icon="fa fa-fw fa-plus"
+                                     style="float: right"
+                                     actionListener="#{equipementBean.show}" update="demande"/>
+
+                </h:outputLink>
+                </div>
 
 
-            </p:dataTable>
+
+                    <p:panelGrid columns="2" style="width: 100%" >
+                        <label  class="ui-outputlabel ui-widget value">Equipement</label>
+
+                        <p:selectOneMenu style="width:400px" value="#{equipementBean.idEquipement}">
+
+                            <f:selectItems value="#{equipementBean.equipements}" var="equi"
+                                           itemValue="#{equi.id}"
+                                           itemLabel="#{equi.labelEquipement}" />
+                            <p:ajax event="change" listener="#{equipementBean.addList}" update="@([id$=composants])"/>
+                        </p:selectOneMenu>
 
 
-            <h:form id="equipementForm">
+                        <label class="ui-outputlabel ui-widget value">Quantité</label>
+                        <p:inputText value="#{equipementBean.equipementProjet.quant}"/>
 
-                <p:panelGrid columns="2" style="width: 100%" >
-                    <p:outputLabel value="equipement"></p:outputLabel>
+                    </p:panelGrid>
+                </p:fieldset>
 
-                    <p:selectOneMenu style="width:173px" value="#{equipementBean.idEquipement}">
 
-                        <f:selectItems value="#{equipementBean.equipements}" var="equi"
-                                       itemValue="#{equi.id}"
-                                       itemLabel="#{equi.labelEquipement}"/>
-                        <p:ajax></p:ajax>
-                    </p:selectOneMenu>
+                    <br></br>
+                    <br></br>
 
-                    <p:outputLabel value="Caracteristique"></p:outputLabel>
-                    <p:selectOneMenu style="width:173px" value="#{equipementBean.idCaracteristique}">
+                    <h:form rendered = "#{equipementBean.shownew}">
 
-                        <f:selectItems value="#{equipementBean.caracteristiques}" var="carac"
-                                       itemValue="#{carac.id}"
-                                       itemLabel="#{carac.nomCaracteristique}"/>
-                        <p:ajax></p:ajax>
-                    </p:selectOneMenu>
+                        <p:growl id="msgs" showDetail="true" />
+                        <p:fieldset legend="Composants" toggleable="true" toggleSpeed="500">
 
-                    <p:commandButton icon="pi pi-search" value="Ajouter un equipement" action="#{equipementBean.addEquipementAndOutils}"
-                                     update="equipementForm, :equipementTable"/>
 
-                </p:panelGrid>
-            </h:form>
+                            <div class="alert alert-info">
+                                <strong>Compléter les information ci dessus</strong>
+                            </div>
+
+
+
+                            <div>
+                                <p:panelGrid columns="2" style="width:100%">
+                                    <f:facet name="header">
+                                        <td colspan="2" role="columnheader">Information sur le document soumis de canvas</td>
+
+                                    </f:facet>
+                                </p:panelGrid>
+                            </div>
+                            <p:dataTable value="#{equipementBean.composants}" var="composant" id="composants" >
+
+                                <p:column headerText="" width="1%">
+                                    <h:outputText value="#{composant.nomComposant}"/>
+
+                                </p:column>
+                                <p:column headerText="les détailles" width="7%">
+
+                                    <p:inputText value="#{equipementBean.detailEquipementProjet.detaill}">
+                                        <p:ajax event="blur" listener="#{equipementBean.addEquipement(composant)}" />
+                                    </p:inputText>
+
+                                </p:column>
+                            </p:dataTable>
+                        </p:fieldset>
+
+                        <br></br>
+
+                        <p:panelGrid columns="2" style="width:100%">
+                            <f:facet name="header">
+
+                                <p:button value="Suivant" href="http://localhost:8080/pages/confirmation.xhtml"
+                                          update="@form"
+                                          style="background-color: deepskyblue;border-color: deepskyblue; float: right"
+
+                                          icon="fa fa-fw fa-caret-right" />
+
+                                <p:commandButton value="Enregistrer" action="#{equipementBean.addEquipementProjet}"
+                                                 update="@([id$=up])"
+                                                 style="background-color: limegreen;border-color: limegreen; float: right"
+                                                 icon="fa fa-fw fa-save"/>
+
+                                <p:button value="Retour" href="http://localhost:8080/pages/projet.xhtml"
+
+                                          update="@form"
+                                          style="background-color: #f53f28;border-color: #f53f28; float: left"
+                                          icon="fa fa-fw  fa-undo"/>
+
+                            </f:facet>
+                        </p:panelGrid>
+
+                    </h:form>
+                </h:form>
+
+
         </ui:define>
     </ui:composition>
+
 </h:body>
 </html>

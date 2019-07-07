@@ -16,8 +16,4 @@ public class Liste extends BaseEntity{
     @Column (name = "etablissement")
     private String etablissement;
 
-    @Column (name = "region" )
-    private  String region;
-
-
 }
