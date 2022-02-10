@@ -36,7 +36,7 @@
 		<hibernate-jpa.version>1.0.0.Final</hibernate-jpa.version>
 		<hibernate-validator.version>5.2.4.Final</hibernate-validator.version>
 		<hibernate-envers.version>5.1.0.Final</hibernate-envers.version>
-		<postgresql.version>9.3-1100-jdbc4</postgresql.version>
+		<postgresql.version>42.2.25</postgresql.version>
 		<ehache.version>2.10.1</ehache.version>
 		<ehache-spring-annotations.version>1.2.0</ehache-spring-annotations.version>
 
