@@ -82,7 +82,7 @@
 		<primefaces-extensions.version>6.0.0</primefaces-extensions.version>
 		<primefaces.themes.version>1.0.10</primefaces.themes.version>
 
-		<apache.poi.version>3.10-FINAL</apache.poi.version>
+		<apache.poi.version>4.1.1</apache.poi.version>
 
 		<itext.version>2.1.7</itext.version>
 		<excel.reader.version>1.2</excel.reader.version>
