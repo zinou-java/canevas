@@ -50,7 +50,7 @@
 		<spring.version>4.3.2.RELEASE</spring.version>
 
 		<spring-security.version>4.0.4.RELEASE</spring-security.version>
-		<spring-security-cas.version>3.1.1.RELEASE</spring-security-cas.version>
+		<spring-security-cas.version>4.2.13.RELEASE</spring-security-cas.version>
 		<spring.integration.version>2.2.5.RELEASE</spring.integration.version>
 		<spring.test.version>4.2.5.RELEASE</spring.test.version>
 
